@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our 2nd Anniversary 💕</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rose: #c9536a;
+    --blush: #f5d0d8;
+    --cream: #fdf6f0;
+    --gold: #c9a96e;
+    --deep: #3a1a22;
+    --wine: #7b2d3e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--deep);
+    overflow-x: hidden;
+  }
+
+  .petals-container {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .petal {
+    position: absolute;
+    top: -30px;
+    font-size: 1.2rem;
+    animation: fall linear infinite;
+    opacity: 0.6;
+  }
+
+  @keyframes fall {
+    0% { transform: translateY(-30px) rotate(0deg) translateX(0); opacity: 0.7; }
+    50% { transform: translateY(50vh) rotate(180deg) translateX(30px); }
+    100% { transform: translateY(110vh) rotate(360deg) translateX(-20px); opacity: 0; }
+  }
+
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+    background: radial-gradient(ellipse at 50% 0%, #f9e4ea 0%, var(--cream) 70%);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9536a' fill-opacity='0.04'%3E%3Cpath d='M30 30c0-5.5 4.5-10 10-10s10 4.5 10 10-4.5 10-10 10-10-4.5-10-10zM10 10c0-5.5 4.5-10 10-10s10 4.5 10 10-4.5 10-10 10-10-4.5-10-10z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .anni-badge {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 1.5rem;
+    animation: fadeUp 1s ease 0.2s both;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 10vw, 7rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--deep);
+    animation: fadeUp 1s ease 0.4s both;
+  }
+
+  .hero-title em { color: var(--rose); font-style: italic; }
+
+  .hero-subtitle {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(1.4rem, 4vw, 2.2rem);
+    color: var(--gold);
+    margin-top: 1rem;
+    animation: fadeUp 1s ease 0.6s both;
+  }
+
+  .heart-divider {
+    font-size: 2rem;
+    margin: 2rem 0;
+    animation: heartbeat 1.5s ease infinite, fadeUp 1s ease 0.8s both;
+    display: inline-block;
+  }
+
+  @keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+  }
+
+  .hero-date {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.2em;
+    color: var(--wine);
+    opacity: 0.8;
+    animation: fadeUp 1s ease 1s both;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    color: var(--rose);
+    opacity: 0.6;
+    animation: bounce 2s ease infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+  }
+
+  .section {
+    padding: 5rem 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: var(--rose);
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 6vw, 4rem);
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--deep);
+  }
+
+  .section-title em { font-style: italic; color: var(--rose); }
+
+  .gallery-section {
+    background: linear-gradient(180deg, var(--cream) 0%, #fef0f3 50%, var(--cream) 100%);
+  }
+
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .photo-card {
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    background: white;
+    box-shadow: 0 4px 20px rgba(201, 83, 106, 0.1);
+  }
+
+  .photo-card:hover {
+    transform: translateY(-6px) rotate(0.5deg);
+    box-shadow: 0 16px 40px rgba(201, 83, 106, 0.25);
+  }
+
+  .photo-card:nth-child(even):hover { transform: translateY(-6px) rotate(-0.5deg); }
+
+  .photo-placeholder {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: linear-gradient(135deg, var(--blush) 0%, #ffe4ec 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .photo-placeholder::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3) 0%, transparent 60%);
+  }
+
+  .photo-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0; left: 0;
+    display: none;
+  }
+
+  .photo-placeholder img.loaded { display: block; }
+
+  .upload-icon {
+    font-size: 2.5rem;
+    opacity: 0.5;
+    position: relative;
+    z-index: 1;
+  }
+
+  .upload-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem;
+    color: var(--wine);
+    opacity: 0.7;
+    letter-spacing: 0.1em;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .upload-btn {
+    background: var(--rose);
+    color: white;
+    border: none;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    transition: background 0.3s;
+    letter-spacing: 0.05em;
+  }
+
+  .upload-btn:hover { background: var(--wine); }
+
+  .photo-caption {
+    padding: 1rem 1.2rem;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.1rem;
+    color: var(--wine);
+    text-align: center;
+    border-top: 1px solid var(--blush);
+  }
+
+  .file-input { display: none; }
+
+  .photo-card.featured { grid-column: span 2; }
+  .photo-card.featured .photo-placeholder { aspect-ratio: 16/9; }
+
+  .timeline-section { background: var(--deep); color: var(--cream); }
+  .timeline-section .section-title { color: var(--cream); }
+  .timeline-section .section-label { color: var(--gold); }
+
+  .timeline {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(180deg, transparent, var(--gold), transparent);
+    transform: translateX(-50%);
+  }
+
+  .timeline-item {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: calc(50% + 2rem);
+    margin-bottom: 3rem;
+    position: relative;
+    animation: fadeInLeft 0.8s ease both;
+  }
+
+  .timeline-item:nth-child(even) {
+    justify-content: flex-start;
+    padding-right: 0;
+    padding-left: calc(50% + 2rem);
+    animation: fadeInRight 0.8s ease both;
+  }
+
+  .timeline-dot {
+    position: absolute;
+    left: 50%;
+    top: 0.8rem;
+    width: 12px;
+    height: 12px;
+    background: var(--rose);
+    border-radius: 50%;
+    transform: translateX(-50%);
+    border: 2px solid var(--gold);
+  }
+
+  .timeline-content {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(201,169,110,0.2);
+    border-radius: 4px;
+    padding: 1.2rem 1.5rem;
+    max-width: 280px;
+  }
+
+  .timeline-date {
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+
+  .timeline-event {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--cream);
+    margin-bottom: 0.3rem;
+  }
+
+  .timeline-desc {
+    font-size: 0.9rem;
+    color: rgba(253,246,240,0.6);
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  .lovenote-section {
+    background: linear-gradient(135deg, #fdf6f0 0%, #fce8ee 50%, #fdf6f0 100%);
+    text-align: center;
+  }
+
+  .love-letter {
+    max-width: 680px;
+    margin: 0 auto;
+    background: white;
+    padding: 3.5rem;
+    position: relative;
+    box-shadow: 0 4px 40px rgba(201,83,106,0.12), 0 0 0 1px rgba(201,83,106,0.08);
+  }
+
+  .love-letter::before {
+    content: '❝';
+    position: absolute;
+    top: 1rem;
+    left: 2rem;
+    font-size: 5rem;
+    color: var(--blush);
+    font-family: 'Playfair Display', serif;
+    line-height: 1;
+  }
+
+  .love-letter p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    line-height: 1.9;
+    color: var(--deep);
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+    white-space: pre-line;
+  }
+
+  .love-letter .signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    color: var(--rose);
+    margin-top: 2rem;
+    display: block;
+  }
+
+  .counter-section {
+    background: var(--rose);
+    text-align: center;
+    padding: 4rem 2rem;
+  }
+
+  .counter-section .section-title { color: white; }
+  .counter-section .section-label { color: rgba(255,255,255,0.7); }
+
+  .counters {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  .counter-item { color: white; text-align: center; }
+
+  .counter-num {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 700;
+    line-height: 1;
+    display: block;
+  }
+
+  .counter-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin-top: 0.3rem;
+  }
+
+  .final-section {
+    background: var(--deep);
+    text-align: center;
+    padding: 6rem 2rem;
+  }
+
+  .final-section .hero-title { color: var(--cream); font-size: clamp(2.5rem, 7vw, 5rem); }
+  .final-section .hero-title em { color: var(--rose); }
+
+  .final-message {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    color: var(--gold);
+    margin-top: 1.5rem;
+    animation: pulse 3s ease infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .edit-overlay {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-end;
+  }
+
+  .edit-btn {
+    background: var(--rose);
+    color: white;
+    border: none;
+    padding: 0.7rem 1.4rem;
+    border-radius: 30px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(201,83,106,0.4);
+    transition: all 0.3s;
+    letter-spacing: 0.05em;
+  }
+
+  .edit-btn:hover {
+    background: var(--wine);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(201,83,106,0.5);
+  }
+
+  [contenteditable="true"] {
+    outline: 2px dashed rgba(201,83,106,0.4);
+    outline-offset: 4px;
+    border-radius: 2px;
+    cursor: text;
+  }
+
+  [contenteditable="true"]:focus {
+    outline: 2px solid var(--rose);
+    background: rgba(249,228,234,0.3);
+  }
+
+  @media (max-width: 600px) {
+    .photo-card.featured { grid-column: span 1; }
+    .timeline::before { left: 1.5rem; }
+    .timeline-item, .timeline-item:nth-child(even) {
+      justify-content: flex-start;
+      padding-left: 3.5rem;
+      padding-right: 0;
+    }
+    .timeline-dot { left: 1.5rem; }
+    .timeline-content { max-width: 100%; }
+    .love-letter { padding: 2rem; }
+    .counters { gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="petals-container" id="petals"></div>
+
+<section class="hero">
+  <div class="anni-badge">✦ Second Anniversary ✦</div>
+  <h1 class="hero-title">Two Month of<br><em>Us</em> 💕</h1>
+  <p class="hero-subtitle" contenteditable="true" id="couplenames">[ Tanim & Khadija ]</p>
+  <div class="heart-divider">🌹</div>
+  <p class="hero-date" contenteditable="true">[ 12 January.2026 ]</p>
+  <p class="scroll-hint">↓ scroll ↓</p>
+</section>
+
+<section class="section gallery-section">
+  <p class="section-label">Our Memories</p>
+  <h2 class="section-title">Our <em>Beautiful</em> Moments</h2>
+  <div class="photo-grid" id="photoGrid">
+
+    <div class="photo-card featured" id="card-0">
+      <div class="photo-placeholder" id="placeholder-0">
+        <img id="img-0" src="10.jpeg" alt="" onload="imgLoaded(0)" onerror="imgError(0)">
+        <div class="upload-icon" id="icon-0" style="display:none">📸</div>
+        <div class="upload-text" id="text-0" style="display:none">ছবি পাওয়া যাচ্ছে না</div>
+        <button class="upload-btn" id="btn-0" style="display:none" onclick="triggerUpload(0)">ছবি বদলাও</button>
+      </div>
+      <div class="photo-caption" contenteditable="true">Our favourite memory 💕</div>
+      <input type="file" class="file-input" id="file-0" accept="image/*" onchange="loadImage(0, this)">
+    </div>
+
+    <div class="photo-card" id="card-1">
+      <div class="photo-placeholder" id="placeholder-1">
+        <img id="img-1" src="11.jpeg" alt="" onload="imgLoaded(1)" onerror="imgError(1)">
+        <div class="upload-icon" id="icon-1" style="display:none">💑</div>
+        <div class="upload-text" id="text-1" style="display:none">ছবি পাওয়া যাচ্ছে না</div>
+        <button class="upload-btn" id="btn-1" style="display:none" onclick="triggerUpload(1)">ছবি বদলাও</button>
+      </div>
+      <div class="photo-caption" contenteditable="true">Together always 🌸</div>
+      <input type="file" class="file-input" id="file-1" accept="image/*" onchange="loadImage(1, this)">
+    </div>
+
+    <div class="photo-card" id="card-2">
+      <div class="photo-placeholder" id="placeholder-2">
+        <img id="img-2" src="12.jpeg" alt="" onload="imgLoaded(2)" onerror="imgError(2)">
+        <div class="upload-icon" id="icon-2" style="display:none">🌹</div>
+        <div class="upload-text" id="text-2" style="display:none">ছবি পাওয়া যাচ্ছে না</div>
+        <button class="upload-btn" id="btn-2" style="display:none" onclick="triggerUpload(2)">ছবি বদলাও</button>
+      </div>
+      <div class="photo-caption" contenteditable="true">My love 💖</div>
+      <input type="file" class="file-input" id="file-2" accept="image/*" onchange="loadImage(2, this)">
+    </div>
+
+    <div class="photo-card" id="card-3">
+      <div class="photo-placeholder" id="placeholder-3">
+        <img id="img-3" src="13.jpeg" alt="" onload="imgLoaded(3)" onerror="imgError(3)">
+        <div class="upload-icon" id="icon-3" style="display:none">✨</div>
+        <div class="upload-text" id="text-3" style="display:none">ছবি পাওয়া যাচ্ছে না</div>
+        <button class="upload-btn" id="btn-3" style="display:none" onclick="triggerUpload(3)">ছবি বদলাও</button>
+      </div>
+      <div class="photo-caption" contenteditable="true">Forever & always 🌙</div>
+      <input type="file" class="file-input" id="file-3" accept="image/*" onchange="loadImage(3, this)">
+    </div>
+
+    <div class="photo-card" id="card-4">
+      <div class="photo-placeholder" id="placeholder-4">
+        <img id="img-4" src="14.jpeg" alt="" onload="imgLoaded(4)" onerror="imgError(4)">
+        <div class="upload-icon" id="icon-4" style="display:none">💌</div>
+        <div class="upload-text" id="text-4" style="display:none">ছবি পাওয়া যাচ্ছে না</div>
+        <button class="upload-btn" id="btn-4" style="display:none" onclick="triggerUpload(4)">ছবি বদলাও</button>
+      </div>
+      <div class="photo-caption" contenteditable="true">You & me 🌺</div>
+      <input type="file" class="file-input" id="file-4" accept="image/*" onchange="loadImage(4, this)">
+    </div>
+
+    <div class="photo-card" id="card-5">
+      <div class="photo-placeholder" id="placeholder-5">
+        <img id="img-5" src="16.jpeg" alt="" onload="imgLoaded(5)" onerror="imgError(5)">
+        <div class="upload-icon" id="icon-5" style="display:none">🌺</div>
+        <div class="upload-text" id="text-5" style="display:none">ছবি পাওয়া যাচ্ছে না</div>
+        <button class="upload-btn" id="btn-5" style="display:none" onclick="triggerUpload(5)">ছবি বদলাও</button>
+      </div>
+      <div class="photo-caption" contenteditable="true">Sweet moments 🌸</div>
+      <input type="file" class="file-input" id="file-5" accept="image/*" onchange="loadImage(5, this)">
+    </div>
+
+    <div class="photo-card" id="card-6">
+      <div class="photo-placeholder" id="placeholder-6">
+        <img id="img-6" src="17.jpeg" alt="" onload="imgLoaded(6)" onerror="imgError(6)">
+        <div class="upload-icon" id="icon-6" style="display:none">💖</div>
+        <div class="upload-text" id="text-6" style="display:none">ছবি পাওয়া যাচ্ছে না</div>
+        <button class="upload-btn" id="btn-6" style="display:none" onclick="triggerUpload(6)">ছবি বদলাও</button>
+      </div>
+      <div class="photo-caption" contenteditable="true">Always & forever 💕</div>
+      <input type="file" class="file-input" id="file-6" accept="image/*" onchange="loadImage(6, this)">
+    </div>
+
+  </div>
+</section>
+
+<section class="section timeline-section">
+  <p class="section-label">Our Journey</p>
+  <h2 class="section-title">How We <em>Got Here</em></h2>
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <p class="timeline-date" contenteditable="true">Month, Year</p>
+        <p class="timeline-event" contenteditable="true">💫 প্রথম দেখা</p>
+        <p class="timeline-desc" contenteditable="true">যেদিন তোমার সাথে প্রথম দেখা হয়েছিল...</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <p class="timeline-date" contenteditable="true">Month, Year</p>
+        <p class="timeline-event" contenteditable="true">❤️ প্রথম date</p>
+        <p class="timeline-desc" contenteditable="true">সেই অসাধারণ দিনটার কথা...</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <p class="timeline-date" contenteditable="true">Month, Year</p>
+        <p class="timeline-event" contenteditable="true">🌹 Officially Together</p>
+        <p class="timeline-desc" contenteditable="true">যেদিন থেকে আমরা আমরা হলাম...</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <p class="timeline-date" contenteditable="true">Today</p>
+        <p class="timeline-event" contenteditable="true">💕 2nd Anniversary!</p>
+        <p class="timeline-desc" contenteditable="true"> আরও অনেক বছর বাকি!</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section lovenote-section">
+  <p class="section-label">From My Heart</p>
+  <h2 class="section-title">A <em>Love Letter</em> Form You</h2>
+  <div class="love-letter">
+    <p contenteditable="true">আজকে ভাবলে মনে হয়,
+আল্লাহ আমাকে কত সুন্দর একটা মানুষ উপহার দিয়েছেন...আমার স্বপ্নের মানুষ, আমার প্রথম ও শেষ ভালোবাসা।
+যার জন্য শতদিন শত প্রার্থনায় আমি কেঁদেছি। বিগত সাতটা বছর ধরে যাকে আমি ভালোবেসেছি।
+আমার শূন্য জীবনে সিন্ধু হয়ে রাব্বুল আলামিন তোমাকে পাঠিয়েছেন এটা আমার জন্য অনেক বড় নেয়ামত। আলহামদুলিল্লাহ। 
+আমি এখন মন খুলে আল্লাহর কাছে ও নিজের কাছে বলতে পারি, তুমি আর তো কারো নাও
+শুধু আমার।
+আমি সত্যিই অনেক ভাগ্যবান।
+আলহামদুলিল্লাহ।
+আর তুমি? তুমি বলো মাশাল্লাহ। 
+Commitment এর ২ মাস হয়ে গেল আর তোমাকে আমার জীবনের অংশ হিসেবে পাওয়াটা আমার জন্য সবচেয়ে বড় সুখের।
+এই লম্বা দীর্ঘ প্রার্থনা কবুল হবার যে আনন্দটা বিশ্বাস করো আমার রব আর আমি জানি। আমার এখনো মাঝে মধ্যে বিশ্বাস হয় না মনে হয় যে আমি স্বপ্নে আছি। 
+আর আল্লাহকে যে কিভাবে কত ভাবে সুকরিয়া বলা উচিত তা আমার জানা নেই। 
+তাই শুধু আলহামদুলিল্লাহ রাব্বুল আলামিন বলি।
+আমাদের সম্পর্কটা হালাল, সুন্দর আর ভালোবাসায় ভরে রাখতে রাব্বুল আলামিন সাহায্য করুক...যেন আমাদের এই পথটা শান্তি, রহমত ও খুশিতে পূর্ণ করে দেন ইনশাআল্লাহ আমিন। 
+আর তোমার কাছে আমার বিশেষ সুকরিয়া। তুমিও আমার জন্য অনেক কষ্ট করতে আছো। 
+কিন্তু ইনশাআল্লাহ 
+আগুনে দিন শেষ হবে একদিন...ঝর্ণার সাথে গান হবে একদিন,, এ পৃথিবীর ছেড়ে চলো যাই স্বপ্নের সিরি বেঁয়ে সীমাহীন🤍
+
+আর, ১০ মিনিট তার পরে তোমাকে টেক্সট টা দিবো,,
+সেই কখন তুমি টেক্সট দিছো আমি লিখতে ছিলাম বলে রিপ্লে দিতে পারি নাই। আল্লাহ ভালো জানে তুমি রাগ করছো কি/না। তোমার এই রাগ আল্লাহ আমার এতো ভয় লাগে। কি বলদা রে,, আমি এখন Sweet কিছুই লিখতে আছি বুঝে না। গরু আর আমারে বলে কি আমি গরু। আপনার সাত রাজার কপাল আমাকে  পাইছেন। আলহামদুলিল্লাহ বলেন। হুম!! 
+আর কি লিখতাম,, 
+মাথায় আসতে আছে না...
+ও হুম আপনি রেস্ট নিতে বলেছেন? কিন্তু আপনি কোথায়? আমার বুঝি আপনাকে কাছে পেতে ইচ্ছে হয় না...যখন অসুস্থ থাকি।
+আর দুই মিনিট, হুম।</p>
+    <span class="signature" contenteditable="true">— Khadija My baby❤️</span>
+  </div>
+</section>
+
+<section class="counter-section">
+  <p class="section-label" style="color:rgba(255,255,255,0.7)">Two Years Together</p>
+  <h2 class="section-title" style="color:white; margin-bottom:0">By The Numbers</h2>
+  <div class="counters">
+    <div class="counter-item">
+      <span class="counter-num" id="days">59</span>
+      <span class="counter-label">Days Together</span>
+    </div>
+    <div class="counter-item">
+      <span class="counter-num">∞</span>
+      <span class="counter-label">Memories Made</span>
+    </div>
+    <div class="counter-item">
+      <span class="counter-num">1</span>
+      <span class="counter-label">Perfect Love</span>
+    </div>
+  </div>
+</section>
+
+<section class="final-section">
+  <h2 class="hero-title">Happy <em>Anniversary</em><br>My Love 💕</h2>
+  <p class="final-message" contenteditable="true">তোমাকে ভালোবাসি 🌹</p>
+  <p style="margin-top:2rem; color:rgba(253,246,240,0.4); font-size:0.8rem; letter-spacing:0.2em;">Made with ❤️ just for you</p>
+</section>
+
+<div class="edit-overlay">
+  <button class="edit-btn" onclick="addPhoto()">+ ছবি যোগ করো</button>
+</div>
+
+<script>
+  const emojis = ['🌸', '🌹', '💕', '✨', '🌺', '💖', '🌷'];
+  for (let i = 0; i < 18; i++) {
+    const petal = document.createElement('div');
+    petal.className = 'petal';
+    petal.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    petal.style.left = Math.random() * 100 + '%';
+    petal.style.animationDuration = (6 + Math.random() * 8) + 's';
+    petal.style.animationDelay = (Math.random() * 10) + 's';
+    petal.style.fontSize = (0.8 + Math.random() * 0.8) + 'rem';
+    document.getElementById('petals').appendChild(petal);
+  }
+
+  function imgLoaded(id) {
+    document.getElementById('img-'+id).classList.add('loaded');
+    ['icon','text','btn'].forEach(k => { const el = document.getElementById(k+'-'+id); if(el) el.style.display='none'; });
+  }
+  function imgError(id) {
+    document.getElementById('img-'+id).style.display='none';
+    ['icon','text','btn'].forEach(k => { const el = document.getElementById(k+'-'+id); if(el) el.style.display=''; });
+  }
+
+  function triggerUpload(id) {
+    document.getElementById('file-' + id).click();
+  }
+
+  function loadImage(id, input) {
+    const file = input.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const img = document.getElementById('img-' + id);
+      const placeholder = document.getElementById('placeholder-' + id);
+      img.src = e.target.result;
+      img.classList.add('loaded');
+      placeholder.querySelectorAll('.upload-icon, .upload-text, .upload-btn').forEach(el => el.style.display = 'none');
+    };
+    reader.readAsDataURL(file);
+  }
+
+  let photoCount = 7;
+  function addPhoto() {
+    const grid = document.getElementById('photoGrid');
+    const id = photoCount++;
+    const card = document.createElement('div');
+    card.className = 'photo-card';
+    card.id = 'card-' + id;
+    card.innerHTML = `
+      <div class="photo-placeholder" id="placeholder-${id}">
+        <img id="img-${id}" src="" alt="">
+        <div class="upload-icon">📷</div>
+        <div class="upload-text">নতুন ছবি যোগ করো</div>
+        <button class="upload-btn" onclick="triggerUpload(${id})">ছবি যোগ করো</button>
+      </div>
+      <div class="photo-caption" contenteditable="true">Our moment 💕</div>
+      <input type="file" class="file-input" id="file-${id}" accept="image/*" onchange="loadImage(${id}, this)">
+    `;
+    grid.appendChild(card);
+    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  // Days counter — starts from January 12, 2026 and updates daily
+  function updateCounter() {
+    const startDate = new Date('2026-01-12');
+    const today = new Date();
+    const diff = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
+    if (diff >= 0) document.getElementById('days').textContent = diff;
+  }
+  updateCounter();
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.photo-card, .love-letter, .timeline-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
